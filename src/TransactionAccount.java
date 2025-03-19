@@ -10,12 +10,16 @@ public class TransactionAccount extends BankAccount{
 
     @Override
     public void withdraw(double amount) {
+        if(amount < 0){
+            System.out.println("Please enter a valid amount.");
+            return;
+        }
         if(balance + overDraftLimit - amount > 0){
             balance -= amount;
-            System.out.println(amount + " withdrawn. balance : " + balance);
+            System.out.println(amount + " reduced from " + getAccountNumber());
+            return;
         }
-        else{
             System.out.println("withdrawn denied.");
-        }
+
     }
 }

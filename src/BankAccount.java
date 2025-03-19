@@ -22,6 +22,10 @@ public abstract class BankAccount {
             System.out.println("Insufficient balance.");
             return;
         }
+        else if(amount < 0) {
+            System.out.println("Please enter a valid amount.");
+            return;
+        }
         this.balance -= amount;
         System.out.println(amount + " reduced from " + this.accountNumber);
     }
